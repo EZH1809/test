@@ -151,16 +151,40 @@ console.log("Hello, World!");
 // Разверните массив data наоборот при помощи цикла и запишите данные в массив result.
 // Должно получиться: [ 'Homework', 20, 'Shopping', 10, 5 ]
 
-function thirdTask() {
-  const data = [5, 10, "Shopping", 20, "Homework"];
-  const result = [];
+// function thirdTask() {
+//   const data = [5, 10, "Shopping", 20, "Homework"];
+//   const result = [];
 
-  for (let i = data.length - 1; i >= 0; i--) {
-    result[data.length - 1 - i] = data[i];
+//   for (let i = data.length - 1; i >= 0; i--) {
+//     result[data.length - 1 - i] = data[i];
+//   }
+
+//   console.log(result);
+//   return result;
+// }
+
+// thirdTask();
+
+//      *
+//     ***
+//    *****
+//   *******
+//  *********
+// ***********
+
+const lines = 6;
+let result = "";
+
+for (let i = 1; i <= lines; i++) {
+  // Добавляем пробелы
+  for (let j = 1; j <= lines - i; j++) {
+    result += " ";
   }
-
-  console.log(result);
-  return result;
+  // Добавляем звездочки
+  for (let k = 0; k < 2 * i - 1; k++) {
+    result += "*";
+  }
+  result += "\n";
 }
 
-thirdTask();
+console.log(result);
