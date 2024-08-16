@@ -67,10 +67,10 @@
 // }
 // console.log(hamburger && fries);
 
-const hamburger = 0;
-const fries = 3;
-const cola = 0;
-const nuggets = 2;
+// const hamburger = 0;
+// const fries = 3;
+// const cola = 0;
+// const nuggets = 2;
 
 if ((hamburger === 3 && cola === 2) || (fries === 3 && nuggets)) {
   console.log("Мы довольны");
@@ -105,3 +105,12 @@ console.log(NaN || null || !3 || undefined || 5);
 console.log(NaN || (null && !3 && undefined) || 5);
 
 console.log((5 === 5 && 3 > 1) || 5);
+
+const hamburger = 0;
+const fries = 3;
+const cola = 0;
+const nuggets = 2;
+
+if ((hamburger === 3 && cola) || (fries === 3 && nuggets)) {
+  console.log("Done!");
+}
