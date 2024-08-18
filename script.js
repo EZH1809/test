@@ -50,13 +50,13 @@
 //     break;
 // }
 
-let num = 20;
-function showFirstMessage(text) {
-  console.log(text);
-  num = 10;
-}
-showFirstMessage("Hello");
-console.log(num);
+// let num = 20;
+// function showFirstMessage(text) {
+//   console.log(text);
+//   num = 10;
+// }
+// showFirstMessage("Hello");
+// console.log(num);
 
 // function calc(a, b) {
 //   return a + b;
@@ -65,21 +65,78 @@ console.log(num);
 // console.log(calc(6, 5));
 
 //function declaration
-function ret() {
-  let num = 50;
-  return num;
+// function ret() {
+//   let num = 50;
+//   return num;
+// }
+// const anotherNum = ret();
+// console.log(anotherNum);
+
+// //function expression
+// const logger = function () {
+//   console.log("Hello");
+// };
+// logger();
+
+// //стрелочная функция
+// const calc = (a, b) => {
+//   return a + b;
+// };
+// console.log(calc(2, 5));
+
+function test() {
+  for (let i = 0; i < 5; i++) {
+    console.log(i);
+    if (i === 3) return;
+  }
+  console.log("Done");
 }
-const anotherNum = ret();
-console.log(anotherNum);
+test();
 
-//function expression
-const logger = function () {
-  console.log("Hello");
-};
-logger();
+function sayHello(name) {
+  return `Привет, ${name} !`;
+}
+let call = sayHello("Mario");
+console.log(call);
 
-//стрелочная функция
-const calc = (a, b) => {
-  return a + b;
-};
-console.log(calc(2, 5));
+function returnNeighboringNumbers(number) {
+  return [number - 1, number, number + 1];
+}
+console.log(returnNeighboringNumbers(5));
+
+function getMathResult(base, repeat) {
+  if (typeof repeat !== "number" || repeat <= 0) {
+    return base;
+  }
+
+  let result = "";
+  for (let i = 1; i <= repeat; i++) {
+    if (i === repeat) {
+      result += base * i;
+    } else {
+      result += base * i + "---";
+    }
+  }
+  return result;
+}
+console.log(getMathResult(6, 3));
+
+/*
+ let str = '';
+
+    for (let i = 1; i <= times; i++) {
+        if (i === times) {
+            str += `${num * i}`;
+            // Тут без черточек в конце
+        } else {
+            str += `${num * i}---`;
+            // Это тоже самое, что и
+            // str = str + num * i + "---"
+        }
+    }
+
+    return str;
+}
+
+getMathResult(10, 5);
+*/
