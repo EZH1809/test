@@ -1,61 +1,76 @@
 "use strict";
+// function calculateVolumeAndArea(edgeLength) {
+//   if (
+//     typeof edgeLength !== "number" ||
+//     !Number.isInteger(edgeLength) ||
+//     edgeLength <= 0
+//   ) {
+//     return "При вычислении произошла ошибка";
+//   }
 
-let numberOfFilms;
-function start() {
-  numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
-  while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
-    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+//   let volume = edgeLength * edgeLength * edgeLength;
+
+//   let surfaceArea = 6 * (edgeLength * edgeLength);
+
+//   return `Объем куба: ${volume}, площадь всей поверхности: ${surfaceArea}`;
+// }
+// console.log(calculateVolumeAndArea(5));
+// console.log(calculateVolumeAndArea(15));
+// console.log(calculateVolumeAndArea(15.5));
+// console.log(calculateVolumeAndArea(-15));
+// console.log(calculateVolumeAndArea("15"));
+
+// function getCoupeNumber(seatNumber) {
+//   if (
+//     typeof seatNumber !== "number" ||
+//     seatNumber < 0 ||
+//     !Number.isInteger(seatNumber)
+//   ) {
+//     return "Ошибка. Проверьте правильность введенного номера места";
+//   }
+//   if (seatNumber === 0 || seatNumber > 36) {
+//     return "Таких мест в вагоне не существует";
+//   }
+//   return Math.ceil(seatNumber / 4);
+// }
+
+// числа фибоначи
+//-------
+// function fib(n) {
+//   if (typeof n !== "number" || n <= 0 || !Number.isInteger(n)) {
+//     return "";
+//   }
+
+//   let fibSequence = [0, 1];
+
+//   for (let i = 2; i < n; i++) {
+//     fibSequence[i] = fibSequence[i - 1] + fibSequence[i - 2];
+//   }
+
+//   return fibSequence.slice(0, n).join(" ");
+// }
+
+function fib(num) {
+  if (typeof num !== "number" || num <= 0 || !Number.isInteger(num)) {
+    return "";
   }
-}
-start();
-const personalMovieDB = {
-  count: numberOfFilms,
-  movies: {},
-  actors: {},
-  genres: [],
-  privat: false,
-};
 
-function rememberMyFilms() {
-  for (let i = 0; i < 2; i++) {
-    const a = prompt("Один из последних просмотренных фильмов?", ""),
-      b = prompt("На сколько оцените его?", "");
+  let result = "";
+  let first = 0;
+  let second = 1;
 
-    if (a != null && b != null && a != "" && b != "" && a.length < 50) {
-      personalMovieDB.movies[a] = b;
-      console.log("done");
+  for (let i = 0; i < num; i++) {
+    if (i + 1 === num) {
+      result += `${first}`;
+      // Без пробела в конце
     } else {
-      console.log("error");
-      i--;
+      result += `${first} `;
     }
-  }
-}
-rememberMyFilms();
 
-function detectPersonalLevel() {
-  if (personalMovieDB.count < 10) {
-    console.log("Просмотрено довольно мало фильмов");
-  } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-    console.log("Вы классический зритель");
-  } else if (personalMovieDB.count >= 30) {
-    console.log("Вы киноман");
-  } else {
-    console.log("Произошла ошибка");
+    let third = first + second;
+    first = second;
+    second = third;
   }
-}
 
-detectPersonalLevel();
-function showMyDB(hidden) {
-  if (!hidden) {
-    console.log(personalMovieDB);
-  }
+  return result;
 }
-showMyDB(personalMovieDB.privat);
-
-function writeYourGenres() {
-  for (let i = 1; i <= 3; i++) {
-    const genre = prompt(`Ваш любимый жанр под номером ${i}`);
-    personalMovieDB.genres[i - 1] = genre;
-  }
-}
-writeYourGenres();
