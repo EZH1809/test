@@ -50,27 +50,58 @@
 //   return fibSequence.slice(0, n).join(" ");
 // }
 
-function fib(num) {
-  if (typeof num !== "number" || num <= 0 || !Number.isInteger(num)) {
-    return "";
-  }
+// function fib(num) {
+//   if (typeof num !== "number" || num <= 0 || !Number.isInteger(num)) {
+//     return "";
+//   }
 
-  let result = "";
-  let first = 0;
-  let second = 1;
+//   let result = "";
+//   let first = 0;
+//   let second = 1;
 
-  for (let i = 0; i < num; i++) {
-    if (i + 1 === num) {
-      result += `${first}`;
-      // Без пробела в конце
-    } else {
-      result += `${first} `;
-    }
+//   for (let i = 0; i < num; i++) {
+//     if (i + 1 === num) {
+//       result += `${first}`;
+//       // Без пробела в конце
+//     } else {
+//       result += `${first} `;
+//     }
 
-    let third = first + second;
-    first = second;
-    second = third;
-  }
+//     let third = first + second;
+//     first = second;
+//     second = third;
+//   }
 
-  return result;
+//   return result;
+// }
+// const options = {
+//   name: "test",
+//   width: 1024,
+//   height: 1024,
+//   colors: {
+//     border: "black",
+//     bg: "red",
+//   },
+//   makeTest: function () {
+//     console.log("Test");
+//   },
+// };
+
+// options.makeTest();
+
+// for (let key in options) {
+//   console.log(`Свойство ${key} имеет значение ${options[key]}`);
+// }
+
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// arr.pop();
+// arr.push(11);
+// console.log(arr);
+
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}
+
+for (let value of arr) {
+  console.log(value);
 }
